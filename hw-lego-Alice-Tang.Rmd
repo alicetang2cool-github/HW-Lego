@@ -2,5 +2,3 @@
 title: "hw-lego-Alice-Tang"
 output: html_notebook
 ---
-
-This is the first line 
