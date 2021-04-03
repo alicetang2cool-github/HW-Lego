@@ -34,13 +34,46 @@ Answer: In this sample, among the most common theme of Lego sets purchased, the 
 
 Exercise 4: Create a new variable called age_group and group the ages into the following categories: “18 and under”, “19 - 25”, “26 - 35”, “36 - 50”, “51 and over”.
 ```{r}
-lego_sales_4 <- mutate(lego_sales, age_group = case_when(age <= 18 ~ "18 and under", age <= 25  ~ "19 - 25", age <= 35  ~ "26 - 35", age <= 50  ~ "36 - 50", age <= Inf  ~ "51 and over"))
-lego_sales_4
+lego_sales_with_age_group <- mutate(lego_sales, age_group = case_when(age <= 18 ~ "18 and under", age <= 25  ~ "19 - 25", age <= 35  ~ "26 - 35", age <= 50  ~ "36 - 50", age <= Inf  ~ "51 and over"))
+lego_sales_with_age_group
 ```
 
 
 Exercise 5: Which age group has purchased the highest number of Lego sets.
 ```{r}
-lego_sales_5 
+lego_sales_5 <- count(lego_sales_with_age_group, age_group) %>% arrange(desc(n)) %>% head(1)
+lego_sales_5
 ```
- 
+Answer: In this sample, the age group that has purchased the highest number of Lego sets is 36-50
+
+
+Exercise 6: Which age group has spent the most money on Legos?
+```{r}
+lego_sales_6 <- summarise(group_by(lego_sales_with_age_group, age_group), average_paid = mean(us_price)) %>% arrange(desc(average_paid)) %>% head(1)
+lego_sales_6
+```
+Answer: In this sample, the age group that has spent the most money on Legos on average are 36-50. 
+
+
+Exercise 7: Which Lego theme has made the most money for Lego?
+```{r}
+lego_sales_7 <- summarise(group_by(lego_sales, theme), sum_made = sum(us_price)) %>% arrange(desc(sum_made)) %>% head(1)
+lego_sales_7
+```
+Answer: In this sample, the Lego theme has made the most money for Lego was Star Wars
+
+
+Exercise 8: Which area code has spent the most money on Legos? In the US the area code is the first 3 digits of a phone number.
+```{r}
+lego_sales_8 <- filter(lego_sales, !is.na(phone_number)) %>% mutate(area_code = str_sub(phone_number, 1, 3)) %>% group_by(area_code) %>% summarise(average_made = mean(us_price)) %>% arrange(desc(average_made)) %>% head(1)
+lego_sales_8
+```
+Answer: In this sample, the area code has spent the most money on Legos is 956
+
+
+Exercise 8: 
+Come up with a question you want to answer using these data, and write it down. Then, create a data visualization that answers the question, and explain how your visualization answers the question.
+```{r}
+
+```
+
