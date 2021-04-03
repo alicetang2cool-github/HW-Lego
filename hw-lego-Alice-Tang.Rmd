@@ -26,12 +26,21 @@ Answer: In this sample, the three most common themes of of Lego sets purchased a
 
 Exercise 3: Among the most common theme of Lego sets purchased, what is the most common subtheme?
 ```{r}
-lego_sales_3 <- lego_sales %>% filter(theme == "Star Wars" | theme == "Nexo Knights" | theme == "Gear", !is.na(subtheme) ) %>% count(subtheme) %>% arrange(desc(n)) %>% head(1)
+lego_sales_3 <- lego_sales %>% filter(theme == "Star Wars" | theme == "Nexo Knights" | theme == "Gear", !is.na(subtheme)) %>% count(subtheme) %>% arrange(desc(n)) %>% head(1)
 lego_sales_3                                                                                                                                                                                                   
 ```
 Answer: In this sample, among the most common theme of Lego sets purchased, the most common subtheme is Ultimate.
 
 
-Exercise 3:
+Exercise 4: Create a new variable called age_group and group the ages into the following categories: “18 and under”, “19 - 25”, “26 - 35”, “36 - 50”, “51 and over”.
+```{r}
+lego_sales_4 <- mutate(lego_sales, age_group = case_when(age <= 18 ~ "18 and under", age <= 25  ~ "19 - 25", age <= 35  ~ "26 - 35", age <= 50  ~ "36 - 50", age <= Inf  ~ "51 and over"))
+lego_sales_4
+```
 
 
+Exercise 5: Which age group has purchased the highest number of Lego sets.
+```{r}
+lego_sales_5 
+```
+ 
