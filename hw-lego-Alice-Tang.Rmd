@@ -2,3 +2,36 @@
 title: "hw-lego-Alice-Tang"
 output: html_notebook
 ---
+
+```{r}
+view(lego_sales)
+```
+
+
+Exercise 1: What are the three most common first names of purchasers?
+```{r}
+lego_sales_1 <- lego_sales %>% count(first_name) %>% arrange(desc(n)) %>% head(3)
+lego_sales_1
+```
+Answer: In this sample, the first three common names of purchasers are Jackson, Jacob, and Joseph. 
+
+
+Exercise 2: What are the three most common themes of Lego sets purchased?
+```{r}
+lego_sales_2 <- lego_sales %>% count(theme) %>% arrange(desc(n)) %>% head(3)
+lego_sales_2
+```
+Answer: In this sample, the three most common themes of of Lego sets purchased are Star Wars, Nexo Knights, and Gear 
+
+
+Exercise 3: Among the most common theme of Lego sets purchased, what is the most common subtheme?
+```{r}
+lego_sales_3 <- lego_sales %>% filter(theme == "Star Wars" | theme == "Nexo Knights" | theme == "Gear", !is.na(subtheme) ) %>% count(subtheme) %>% arrange(desc(n)) %>% head(1)
+lego_sales_3                                                                                                                                                                                                   
+```
+Answer: In this sample, among the most common theme of Lego sets purchased, the most common subtheme is Ultimate.
+
+
+Exercise 3:
+
+

@@ -46,6 +46,15 @@ if (!!window.navigator.userAgent.match("MSIE 8")) {
 !function(a){"use strict";a.matchMedia=a.matchMedia||function(a){var b,c=a.documentElement,d=c.firstElementChild||c.firstChild,e=a.createElement("body"),f=a.createElement("div");return f.id="mq-test-1",f.style.cssText="position:absolute;top:-100em",e.style.background="none",e.appendChild(f),function(a){return f.innerHTML='&shy;<style media="'+a+'"> #mq-test-1 { width: 42px; }</style>',c.insertBefore(e,d),b=42===f.offsetWidth,c.removeChild(e),{matches:b,media:a}}}(a.document)}(this),function(a){"use strict";function b(){u(!0)}var c={};a.respond=c,c.update=function(){};var d=[],e=function(){var b=!1;try{b=new a.XMLHttpRequest}catch(c){b=new a.ActiveXObject("Microsoft.XMLHTTP")}return function(){return b}}(),f=function(a,b){var c=e();c&&(c.open("GET",a,!0),c.onreadystatechange=function(){4!==c.readyState||200!==c.status&&304!==c.status||b(c.responseText)},4!==c.readyState&&c.send(null))};if(c.ajax=f,c.queue=d,c.regex={media:/@media[^\{]+\{([^\{\}]*\{[^\}\{]*\})+/gi,keyframes:/@(?:\-(?:o|moz|webkit)\-)?keyframes[^\{]+\{(?:[^\{\}]*\{[^\}\{]*\})+[^\}]*\}/gi,urls:/(url\()['"]?([^\/\)'"][^:\)'"]+)['"]?(\))/g,findStyles:/@media *([^\{]+)\{([\S\s]+?)$/,only:/(only\s+)?([a-zA-Z]+)\s?/,minw:/\([\s]*min\-width\s*:[\s]*([\s]*[0-9\.]+)(px|em)[\s]*\)/,maxw:/\([\s]*max\-width\s*:[\s]*([\s]*[0-9\.]+)(px|em)[\s]*\)/},c.mediaQueriesSupported=a.matchMedia&&null!==a.matchMedia("only all")&&a.matchMedia("only all").matches,!c.mediaQueriesSupported){var g,h,i,j=a.document,k=j.documentElement,l=[],m=[],n=[],o={},p=30,q=j.getElementsByTagName("head")[0]||k,r=j.getElementsByTagName("base")[0],s=q.getElementsByTagName("link"),t=function(){var a,b=j.createElement("div"),c=j.body,d=k.style.fontSize,e=c&&c.style.fontSize,f=!1;return b.style.cssText="position:absolute;font-size:1em;width:1em",c||(c=f=j.createElement("body"),c.style.background="none"),k.style.fontSize="100%",c.style.fontSize="100%",c.appendChild(b),f&&k.insertBefore(c,k.firstChild),a=b.offsetWidth,f?k.removeChild(c):c.removeChild(b),k.style.fontSize=d,e&&(c.style.fontSize=e),a=i=parseFloat(a)},u=function(b){var c="clientWidth",d=k[c],e="CSS1Compat"===j.compatMode&&d||j.body[c]||d,f={},o=s[s.length-1],r=(new Date).getTime();if(b&&g&&p>r-g)return a.clearTimeout(h),h=a.setTimeout(u,p),void 0;g=r;for(var v in l)if(l.hasOwnProperty(v)){var w=l[v],x=w.minw,y=w.maxw,z=null===x,A=null===y,B="em";x&&(x=parseFloat(x)*(x.indexOf(B)>-1?i||t():1)),y&&(y=parseFloat(y)*(y.indexOf(B)>-1?i||t():1)),w.hasquery&&(z&&A||!(z||e>=x)||!(A||y>=e))||(f[w.media]||(f[w.media]=[]),f[w.media].push(m[w.rules]))}for(var C in n)n.hasOwnProperty(C)&&n[C]&&n[C].parentNode===q&&q.removeChild(n[C]);n.length=0;for(var D in f)if(f.hasOwnProperty(D)){var E=j.createElement("style"),F=f[D].join("\n");E.type="text/css",E.media=D,q.insertBefore(E,o.nextSibling),E.styleSheet?E.styleSheet.cssText=F:E.appendChild(j.createTextNode(F)),n.push(E)}},v=function(a,b,d){var e=a.replace(c.regex.keyframes,"").match(c.regex.media),f=e&&e.length||0;b=b.substring(0,b.lastIndexOf("/"));var g=function(a){return a.replace(c.regex.urls,"$1"+b+"$2$3")},h=!f&&d;b.length&&(b+="/"),h&&(f=1);for(var i=0;f>i;i++){var j,k,n,o;h?(j=d,m.push(g(a))):(j=e[i].match(c.regex.findStyles)&&RegExp.$1,m.push(RegExp.$2&&g(RegExp.$2))),n=j.split(","),o=n.length;for(var p=0;o>p;p++)k=n[p],l.push({media:k.split("(")[0].match(c.regex.only)&&RegExp.$2||"all",rules:m.length-1,hasquery:k.indexOf("(")>-1,minw:k.match(c.regex.minw)&&parseFloat(RegExp.$1)+(RegExp.$2||""),maxw:k.match(c.regex.maxw)&&parseFloat(RegExp.$1)+(RegExp.$2||"")})}u()},w=function(){if(d.length){var b=d.shift();f(b.href,function(c){v(c,b.href,b.media),o[b.href]=!0,a.setTimeout(function(){w()},0)})}},x=function(){for(var b=0;b<s.length;b++){var c=s[b],e=c.href,f=c.media,g=c.rel&&"stylesheet"===c.rel.toLowerCase();e&&g&&!o[e]&&(c.styleSheet&&c.styleSheet.rawCssText?(v(c.styleSheet.rawCssText,e,f),o[e]=!0):(!/^([a-zA-Z:]*\/\/)/.test(e)&&!r||e.replace(RegExp.$1,"").split("/")[0]===a.location.host)&&("//"===e.substring(0,2)&&(e=a.location.protocol+e),d.push({href:e,media:f})))}w()};x(),c.update=x,c.getEmValue=t,a.addEventListener?a.addEventListener("resize",b,!1):a.attachEvent&&a.attachEvent("onresize",b)}}(this);
 };
 </script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <style type="text/css">.pagedtable {
 overflow: auto;
 padding-left: 8px;
@@ -1484,7 +1493,7 @@ window.initializeCodeFolding = function(show) {
     // create a collapsable div to wrap the code in
     var div = $('<div class="collapse r-code-collapse"></div>');
     var showThis = (show || $(this).hasClass('fold-show')) && !$(this).hasClass('fold-hide');
-    if (showThis) div.addClass('in');
+    if (showThis) div.collapse('show');
     var id = 'rcode-643E0F36' + currentIndex++;
     div.attr('id', id);
     $(this).before(div);
@@ -1492,7 +1501,7 @@ window.initializeCodeFolding = function(show) {
 
     // add a show code button right above
     var showCodeText = $('<span>' + (showThis ? 'Hide' : 'Code') + '</span>');
-    var showCodeButton = $('<button type="button" class="btn btn-default btn-xs code-folding-btn pull-right"></button>');
+    var showCodeButton = $('<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm code-folding-btn pull-right float-right"></button>');
     showCodeButton.append(showCodeText);
     showCodeButton
         .attr('data-toggle', 'collapse')
@@ -1560,11 +1569,6 @@ color: rgb(3, 106, 7);
     </style>
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -1578,30 +1582,6 @@ if (window.hljs) {
 
 
 <style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
 #rmd-source-code {
   display: none;
 }
@@ -1617,10 +1597,6 @@ h6 {
   margin-left: auto;
   margin-right: auto;
 }
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
 img {
   max-width:100%;
 }
@@ -1635,6 +1611,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+pre code {
+  padding: 0;
 }
 </style>
 
@@ -1672,7 +1651,6 @@ summary {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -1739,11 +1717,11 @@ summary {
 
 
 
-<div class="fluid-row" id="header">
+<div id="header">
 
-<div class="btn-group pull-right">
-<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
-<ul class="dropdown-menu" style="min-width: 50px;">
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
 <li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
 <li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
 <li role="separator" class="divider"></li>
@@ -1760,8 +1738,67 @@ summary {
 
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmlldyhsZWdvX3NhbGVzKVxuYGBgIn0= -->
+<pre class="r"><code>view(lego_sales)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Exercise 1: What are the three most common first names of purchasers?</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGVnb19zYWxlc18xIDwtIGxlZ29fc2FsZXMgJT4lIGNvdW50KGZpcnN0X25hbWUpICU+JSBhcnJhbmdlKGRlc2MobikpICU+JSBoZWFkKDMpXG5sZWdvX3NhbGVzXzFcbmBgYCJ9 -->
+<pre class="r"><code>lego_sales_1 &lt;- lego_sales %&gt;% count(first_name) %&gt;% arrange(desc(n)) %&gt;% head(3)
+lego_sales_1</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MywibmNvbCI6Mn0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVF5MjdDTUJCY0hBekNGYlFTMzVGY3VQQUJxQWVPRlpXNElSTkNpVWpYa1czVUh2dmprSzVmVW10THNXZG1QYnVldkczMks3RVhBRkJBTVdGUWNJTEEzM2V2NVJwZ3pJaU1ZQXd6ZDM3VHBTVUJKNzU0UnloTXQ3SytHb1dSY3FMcUdNbGtxMHpUWHdqTnZTT2NUK0g3MTU2ai9HeE1iTTJpS002dE52YmdTdWtWbVBsbVduMVZ5ZXVhc3gvYWhtRzQ1d1BxVHBvMElJbmlKSzJzenRvTkFIaGtscW5xYmF1UVRNd0Y1NWw1cERQaCtZYnVKYWV5dnR6d1dxN2NBRjhPYXg1eDhRZXpNSklOc1JWUFA2N0JqeFpUYXQ3Slk5TkZzcURFUG5EVjZ4WnRTa0txcWF5eU10MFR0ZXFTNHJQQjR4ZjdLM3BPN3dFQUFBPT0ifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["first_name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"Jackson","2":"13"},{"1":"Jacob","2":"11"},{"1":"Joseph","2":"11"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[3]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Answer: In this sample, the first three common names of purchasers are Jackson, Jacob, and Joseph.</p>
+<p>Exercise 2: What are the three most common themes of Lego sets purchased?</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGVnb19zYWxlc18yIDwtIGxlZ29fc2FsZXMgJT4lIGNvdW50KHRoZW1lKSAlPiUgYXJyYW5nZShkZXNjKG4pKSAlPiUgaGVhZCgzKVxubGVnb19zYWxlc18yXG5gYGAifQ== -->
+<pre class="r"><code>lego_sales_2 &lt;- lego_sales %&gt;% count(theme) %&gt;% arrange(desc(n)) %&gt;% head(3)
+lego_sales_2</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MywibmNvbCI6Mn0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVBUVS9ETUF6MTBtYW8xUVpJL0lIOWdmWUMwbmJrZ09Bd2lRTWZZdGVzeTlacVhUS2xtZGlSUDg2S2s4WVNTaVFuOW5QZXM5L2IwK28rWCtVQWtFQXlacEJ3VElGL2Zqd1hDNENVWVRHQ0ZETDNudkhUSFNZT3ZQV01vWkc5VzJGbVg4SjBBWmk4eXJPZUxWV3pxeTFoNllzVUJ0K3BKd0lzTVI0eDV0RVVyc1JCZG1FQ0k5RFc4aUJwRHhWUk1xTy9TNkk1ZmZhRFY5LzN2N0YyMVlxT3RBbk1OOEtLY211UWo5VWxvbHpwbzIyMFFoSnoxbmxFSHBrSXVEa3B0OG1tcU9xVDJoY1Bib0J2RDJjYTh1UmZ6b2FSckE5U1BFaU5wZG8xaWx6elZxeGxHNHByZE93TmwwZlRLRXRPRU8xS3E2MmdmM21sVzBLOE43ajhBYlRLc0RieEFRQUEifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["theme"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"Star Wars","2":"75"},{"1":"Nexo Knights","2":"64"},{"1":"Gear","2":"55"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[3]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Answer: In this sample, the three most common themes of of Lego sets purchased are Star Wars, Nexo Knights, and Gear</p>
+<p>Exercise 3: Among the most common theme of Lego sets purchased, what is the most common subtheme?</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGVnb19zYWxlc18zIDwtIGxlZ29fc2FsZXMgJT4lIGZpbHRlcih0aGVtZSA9PSBcIlN0YXIgV2Fyc1wiIHwgdGhlbWUgPT0gXCJOZXhvIEtuaWdodHNcIiB8IHRoZW1lID09IFwiR2VhclwiLCAhaXMubmEoc3VidGhlbWUpICkgJT4lIGNvdW50KHN1YnRoZW1lKSAlPiUgYXJyYW5nZShkZXNjKG4pKSAlPiUgaGVhZCgxKVxubGVnb19zYWxlc18zICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5gYGAifQ== -->
+<pre class="r"><code>lego_sales_3 &lt;- lego_sales %&gt;% filter(theme == &quot;Star Wars&quot; | theme == &quot;Nexo Knights&quot; | theme == &quot;Gear&quot;, !is.na(subtheme) ) %&gt;% count(subtheme) %&gt;% arrange(desc(n)) %&gt;% head(1)
+lego_sales_3                                                                                                                                                                                                   </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6Mn0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMlB3UXJDTUF5R3M4NnFHeWlDNEZ0c0lIcndBY1FIRUFXdmRWWWRkdTFZTy9Ub2s2dnBiR0cwaHpiNW15L0p2OStlVnVrcEJZQVk0aUdCbUdJSTlIallaUnVBQWNFa2dnRWs5bjFoMFJ3REs4NTZIK09qTUdYRkRNZDQwdWtBaXdDbWtsVmNPNUI0VUxkbmMrY1Y5eE5rUUNXTmV1YWV0SzNKRzY4dm5yQjlJWmpXd1Y3cGhSbVdYeHZrTWZzRXlFalZwbFFTSVdKTjBRQ09ta0NZdGRKdWNzbUtleXNmMlhKdEp6aTMwSE1lOVdMeW4wbStyaGQxdllaYzNrcnBiVlBCemx5NFpJcVdPOGQ1M1pUU2VDdW82dHdvdzN4ZFdpamhsYzRjZkg0MW9PVFd6QUVBQUE9PSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["subtheme"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"Ultimate","2":"22"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Answer: In this sample, among the most common theme of Lego sets purchased, the most common subtheme is Ultimate.</p>
+<p>Exercise 3:</p>
+<!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiaHctbGVnby1BbGljZS1UYW5nIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiaHctbGVnby1BbGljZS1UYW5nIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpgYGB7cn0KdmlldyhsZWdvX3NhbGVzKQpgYGAKCgpFeGVyY2lzZSAxOiBXaGF0IGFyZSB0aGUgdGhyZWUgbW9zdCBjb21tb24gZmlyc3QgbmFtZXMgb2YgcHVyY2hhc2Vycz8KYGBge3J9CmxlZ29fc2FsZXNfMSA8LSBsZWdvX3NhbGVzICU+JSBjb3VudChmaXJzdF9uYW1lKSAlPiUgYXJyYW5nZShkZXNjKG4pKSAlPiUgaGVhZCgzKQpsZWdvX3NhbGVzXzEKYGBgCkFuc3dlcjogSW4gdGhpcyBzYW1wbGUsIHRoZSBmaXJzdCB0aHJlZSBjb21tb24gbmFtZXMgb2YgcHVyY2hhc2VycyBhcmUgSmFja3NvbiwgSmFjb2IsIGFuZCBKb3NlcGguIAoKCkV4ZXJjaXNlIDI6IFdoYXQgYXJlIHRoZSB0aHJlZSBtb3N0IGNvbW1vbiB0aGVtZXMgb2YgTGVnbyBzZXRzIHB1cmNoYXNlZD8KYGBge3J9CmxlZ29fc2FsZXNfMiA8LSBsZWdvX3NhbGVzICU+JSBjb3VudCh0aGVtZSkgJT4lIGFycmFuZ2UoZGVzYyhuKSkgJT4lIGhlYWQoMykKbGVnb19zYWxlc18yCmBgYApBbnN3ZXI6IEluIHRoaXMgc2FtcGxlLCB0aGUgdGhyZWUgbW9zdCBjb21tb24gdGhlbWVzIG9mIG9mIExlZ28gc2V0cyBwdXJjaGFzZWQgYXJlIFN0YXIgV2FycywgTmV4byBLbmlnaHRzLCBhbmQgR2VhciAKCgpFeGVyY2lzZSAzOiBBbW9uZyB0aGUgbW9zdCBjb21tb24gdGhlbWUgb2YgTGVnbyBzZXRzIHB1cmNoYXNlZCwgd2hhdCBpcyB0aGUgbW9zdCBjb21tb24gc3VidGhlbWU/CmBgYHtyfQpsZWdvX3NhbGVzXzMgPC0gbGVnb19zYWxlcyAlPiUgZmlsdGVyKHRoZW1lID09ICJTdGFyIFdhcnMiIHwgdGhlbWUgPT0gIk5leG8gS25pZ2h0cyIgfCB0aGVtZSA9PSAiR2VhciIsICFpcy5uYShzdWJ0aGVtZSkgKSAlPiUgY291bnQoc3VidGhlbWUpICU+JSBhcnJhbmdlKGRlc2MobikpICU+JSBoZWFkKDEpCmxlZ29fc2FsZXNfMyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIApgYGAKQW5zd2VyOiBJbiB0aGlzIHNhbXBsZSwgYW1vbmcgdGhlIG1vc3QgY29tbW9uIHRoZW1lIG9mIExlZ28gc2V0cyBwdXJjaGFzZWQsIHRoZSBtb3N0IGNvbW1vbiBzdWJ0aGVtZSBpcyBVbHRpbWF0ZS4KCgpFeGVyY2lzZSAzOgoKCg==</div>
 
 
 
@@ -1800,7 +1837,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
