@@ -71,9 +71,12 @@ lego_sales_8
 Answer: In this sample, the area code has spent the most money on Legos is 956
 
 
-Exercise 8: 
-Come up with a question you want to answer using these data, and write it down. Then, create a data visualization that answers the question, and explain how your visualization answers the question.
+Exercise 8: Does the number of pieces reflect the price tag. Does it mean that with more pieces the price increases, the less pieces the cheaper the price is. 
+Then, create a data visualization that answers the question, and explain how your visualization answers the question.
 ```{r}
-
+ggplot(lego_sales, mapping = aes(x = pieces, y = us_price)) + geom_point() + geom_smooth()
 ```
+Answer: In this sample, from this graphic visualization, it shows that the price ultimately grows with the increasing amount of pieces in the Lego set, and not the other way around. Thus, the number of pieces reflects the price tag in a positive coloration. 
+
+
 
